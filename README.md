@@ -7,4 +7,4 @@ File | Description
 ---- | ----
 [Figure3-KJ_em&th_power.R](Figure3-KJ_em&th_power.R) | Comparing the empirical and theoretical power of KJ statistic and generating Figure 3 in the manuscript. 
 [Figure4-Sensitivity-Power.R](Figure4-Sensitivity-Power.R) | Comparing the power of AR and different KJ statistics and generating Figure 3 in the manuscript. 
-[Figure5-Sensitivity-zeroinf-multitxt.R](Figure5-Sensitivity-zeroinf-multitxt.R) | Calculating the standard errors for the estimated parameters using the formula in Theorem 1
+[Figure5-Sensitivity-zeroinf-multitxt.R](Figure5-Sensitivity-zeroinf-multitxt.R) | Comparing the power of AR and different KJ statistics when the outcome is zero inflated and there are two treatment variables.  Generating Figure 3 in the manuscript. 
