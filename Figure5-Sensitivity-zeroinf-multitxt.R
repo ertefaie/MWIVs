@@ -7,9 +7,9 @@ library(ivpack);library(MASS);library(ivmodel);library(Matrix);library(truncnorm
 
 PowerPlot2D<-function(K,n_obs, gamma, delta){
 
-K<-20*1 # number of instruments
-n_obs<-500
-gamma<-1.0
+#K<-20*1 # number of instruments
+#n_obs<-500
+#gamma<-1.0
 strength<-c(1,rep(0.0,K-1))*gamma
 strength2<-c(0,1,rep(0.0,K-2))*gamma
 sdelt<- delta<-0.0

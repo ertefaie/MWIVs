@@ -6,10 +6,15 @@ rm(list=ls())
 library(ivpack);
 library(MASS);library(ivmodel);library(Matrix); #library(expm)
 
-K<-50*1 # number of instruments
-n_obs<-500
-strength<-c(0.5,rep(0.0,K-1))
-sdelt<- 0.2
+
+PowerPlotEmTh<-function(K,n_obs, gamma, delta){
+
+
+#K<-50*1 # number of instruments
+#n_obs<-500
+strength<-c(1,rep(0.0,K-1))*gamma
+#sdelt<- 0.2
+sdelt<-delta
 expit<-function(x){
 	exp(x)/(1+exp(x))
 	}
@@ -19,6 +24,7 @@ tsls.bet<-bet<-bet.ols<-sd.bet.ols<-sd.bet<-csd.bet<-sd.bet2 <-delt.full <-th.po
 k06type1.er<- AR.type1.er<-type1.er<-type1.er.naive<-AR.unad.type1.er<-0
 nrep<-500
 true.delta.vec<-seq(-2,3,by=.02)
+#true.delta.vec<-seq(-2,3,by=.2)
 true.gam<-"unknown"
 
 th.power.K <-th.power.KJ32 <-th.power.KJ14 <-matrix(0,ncol=nrep,nrow=length(true.delta.vec))
@@ -131,27 +137,25 @@ em.power.KJ32[i]<-k0632type1.er/nrep
 if(i%%1==0){print(i)}
 
 }
+
 type1.er/nrep;apply(th.power.K,1,mean)
 
 (em.power.KJ14);apply(th.power.KJ14,1,mean)
 (em.power.KJ32);apply(th.power.KJ32,1,mean)
 
 
+return(list(beta= true.delta.vec,KJ14=th.power.KJ14,KJ32=th.power.KJ32,KJ05=th.power.K,EMKJ32= em.power.KJ32,EMKJ14= em.power.KJ14))
 
-par(mfrow=c(1,2))
+}
 
-plot(true.delta.vec, apply(th.power.KJ14,1,mean),type="n",ylab="Power", xlab=expression(beta),ylim=c(0,1))
-smoothingSpline = smooth.spline(true.delta.vec, apply(th.power.KJ14,1,mean), spar=0.3)
+
+PP<-PowerPlotEmTh(K=50,n_obs=500,gamma= 0.5, delta =0.2)
+
+
+plot(PP$beta,apply(PP$KJ32,1,mean) ,type="n",ylab="Power", xlab=expression(beta),ylim=c(0,1))
+smoothingSpline = smooth.spline(PP$beta,apply(PP$KJ32,1,mean), spar=0.3)
 lines(smoothingSpline, lty=1)
-smoothingSpline = smooth.spline(true.delta.vec, em.power.KJ14, spar=0.3)
-lines(smoothingSpline, lty=2)
-legend("bottomright",c("th-KJ14","em-KJ14"),lty=1:2,cex=0.6,bty="n")
-
-
-plot(true.delta.vec,apply(th.power.KJ32,1,mean) ,type="n",ylab="Power", xlab=expression(beta),ylim=c(0,1))
-smoothingSpline = smooth.spline(true.delta.vec,apply(th.power.KJ32,1,mean), spar=0.3)
-lines(smoothingSpline, lty=1)
-smoothingSpline = smooth.spline(true.delta.vec, em.power.KJ32, spar=0.3)
+smoothingSpline = smooth.spline(PP$beta, PP$EMKJ32, spar=0.3)
 lines(smoothingSpline, lty=2)
 legend("bottomright",c("th-KJ32","em-KJ32"),lty=1:2,cex=0.6,bty="n")
 
