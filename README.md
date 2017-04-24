@@ -5,11 +5,6 @@
 
 File | Description
 ---- | ----
-[Figure3-KJ_em&th_power.R](Figure3-KJ_em&th_power.R) | Generating the simulated data
-[Figure4-Sensitivity-Power.R](Figure4-Sensitivity-Power.R) | Estimating the parameters
+[Figure3-KJ_em&th_power.R](Figure3-KJ_em&th_power.R) | Comparing the empirical and theoretical power of KJ statistic and generating Figure 3 in the manuscript. 
+[Figure4-Sensitivity-Power.R](Figure4-Sensitivity-Power.R) | Comparing the power of AR and different KJ statistics and generating Figure 3 in the manuscript. 
 [Figure5-Sensitivity-zeroinf-multitxt.R](Figure5-Sensitivity-zeroinf-multitxt.R) | Calculating the standard errors for the estimated parameters using the formula in Theorem 1
-[MyCode-Parm.R](MyCode-Parm.R) | Sounrce file needed to generate data
-[MyCode-dudc.R](MyCode-dudc.R) | Sounrce file needed to generate data
-[OP-Search-7YCat.R](OP-Search-7YCat.R) | Sounrce file needed to calculate standard errors
-[Feature_functions.R](Feature_functions.R) | Providing features
-[Rev2-IMP-GGQ-75-2K-S1-300-400itr-gam6-45-r2-GenDat6.RData](Rev2-IMP-GGQ-75-2K-S1-300-400itr-gam6-45-r2-GenDat6.RData) | Providing initial values for the GGQ algorithm
