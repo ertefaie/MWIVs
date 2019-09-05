@@ -12,7 +12,7 @@ PowerPlot2D<-function(K,n_obs, gamma, delta){
 #gamma<-1.0
 strength<-c(1,rep(0.0,K-1))*gamma
 strength2<-c(0,1,rep(0.0,K-2))*gamma
-sdelt<- delta<-0.0
+sdelt<- delta#<-0.0
 #sdelt<-0.1
 library(ggplot2);library(gridExtra)
 library(lme4); library(optmatch)
