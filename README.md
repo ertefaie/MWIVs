@@ -10,8 +10,4 @@ File | Description
 [Figure6-Sensitivity-Power.R](Figure4-Sensitivity-Power.R) | Comparing the power of AR and different KJ statistics and generating Figure 6 in the manuscript. 
 [Figure8-Sensitivity-zeroinf-multitxt.R](Figure5-Sensitivity-zeroinf-multitxt.R) | Comparing the power of AR and different KJ statistics when the outcome is zero inflated and there are two treatment variables.  Generating Figure 8 in the manuscript. 
 [Table2-inference-under_heterogeneity.R](Table1-inference-under_heterogeneity.R) | Producing confidence intervals and point estimates by inverting the AR and different KJ staitstics. Generating Table 2 in the manuscript.
-=======
-[Figure3-KJ_em&th_power.R](Figure3-KJ_em&th_power.R) | Comparing the empirical and theoretical power of KJ statistic and generating Figure 5 in the manuscript. 
-[Figure4-Sensitivity-Power.R](Figure4-Sensitivity-Power.R) | Comparing the power of AR and different KJ statistics and generating Figure 6 in the manuscript. 
-[Figure5-Sensitivity-zeroinf-multitxt.R](Figure5-Sensitivity-zeroinf-multitxt.R) | Comparing the power of AR and different KJ statistics when the outcome is zero inflated and there are two treatment variables.  Generating Figure 3 in the manuscript. 
 >>>>>>> Stashed changes
