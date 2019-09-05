@@ -1,5 +1,12 @@
 
 
+# This code generates Fig 5 in the manuscript. It compares the theoretical amd the empirical power of the KJ statistic with a continoues outcome and one treatment options.
+# Line 33 specifie the grid on beta1 and beta2. 
+# number of replicates is specified in line 32. Fig 5 uses nrep=500.
+# K is the dimension of the vector of instruments
+# n_obs is the sample size
+# gamma sets the strength of the instruments
+# delta is the sensitivity parameter
 
 
 rm(list=ls())

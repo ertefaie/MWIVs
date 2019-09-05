@@ -1,6 +1,15 @@
 
 
 
+# This code generates Fig 7 in the manuscript. It compares the theoretical amd the empirical power of the KJ_{32} statistic with xero-inflated outcome and two treatment options.
+# Line 36 and 36 specifie the grid on beta1 and beta2. Fig 7 is generated using seq(-.2,.2,by=0.005) for both of the parameters. 
+# number of replicates is specified in line 31. Fig 7 uses nrep=500.
+# K is the dimension of the vector of instruments
+# n_obs is the sample size
+# gamma sets the strength of the instruments
+# delta is the sensitivity parameter
+
+
 rm(list=ls())
 library(ivpack);library(MASS);library(ivmodel);library(Matrix);library(truncnorm)
 

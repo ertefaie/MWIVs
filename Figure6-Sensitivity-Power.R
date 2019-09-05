@@ -1,6 +1,14 @@
 
   
 
+# This code generates Fig 6 in the manuscript. It compares the power of AR and different KJ statistics when the outcome is continoues and there is one treatment option 
+# K is the dimension of the vector of instruments
+# n_obs is the sample size
+# gamma sets the strength of the instruments
+# delta is the sensitivity parameter
+
+
+
 rm(list=ls())
 library(ivpack);library(MASS);library(ivmodel);library(Matrix)
 

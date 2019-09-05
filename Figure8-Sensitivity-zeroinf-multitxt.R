@@ -1,4 +1,9 @@
 
+# This code generates Fig 8 in the manuscript. It compares the power of AR and different KJ statistics when the outcome is zero inflated and there are two treatment options 
+# K is the dimension of the vector of instruments
+# n_obs is the sample size
+# gamma sets the strength of the instruments
+# delta is the sensitivity parameter
 
 
 rm(list=ls())
