@@ -8,6 +8,7 @@
 # n_obs is the sample size
 # gamma sets the strength of the instruments
 # delta is the sensitivity parameter
+# nrep is the number of simulated datasets
 
 
 rm(list=ls())
@@ -248,8 +249,9 @@ em.mK14<-matrix(em.power.KJ14, nrow=length(temp1),ncol=length(temp2),byrow=TRUE)
 return(list(beta= true.delta.vec,KJ14= th.mK14,KJ32= th.mK32, AR= th.m,beta1=temp1, beta2=temp2, EMKJ32=em.mK32, EMKJ14=em.mK14))
 
 }
-
+ptm<-proc.time()
 PP<-PowerPlot2D(K=20,n_obs=500,gamma= 1, delta =0.0)
+proc.time()-ptm
 
 plot(PP$beta1, PP$beta2,type="n",ylim=c(-.2,.2),xlim=c(-.2,.2),main=expression(paste("K=20,", delta, "=0.0,", gamma, "=1.0")), xlab= expression(beta[1]), ylab= expression(beta[2]))
 contour(PP$beta1, PP$beta2, round(PP$EMKJ32,2),add=TRUE)

@@ -5,7 +5,7 @@
 # gamma sets the strength of the instruments
 # delta is the sensitivity parameter
 # nrep is the number of simulated datasets
- 
+  
 rm(list=ls())
 library(ivpack);library(MASS);library(ivmodel);library(Matrix);library(truncnorm)
 
