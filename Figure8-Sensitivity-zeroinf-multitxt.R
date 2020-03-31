@@ -1,11 +1,11 @@
-
+   
 # This code generates Fig 8 in the manuscript. It compares the power of AR and different KJ statistics when the outcome is zero inflated and there are two treatment options 
 # K is the dimension of the vector of instruments
 # n_obs is the sample size
 # gamma sets the strength of the instruments
 # delta is the sensitivity parameter
-
-
+# nrep is the number of simulated datasets
+ 
 rm(list=ls())
 library(ivpack);library(MASS);library(ivmodel);library(Matrix);library(truncnorm)
 
@@ -250,7 +250,9 @@ return(list(beta= true.delta.vec,KJ14= th.mK14,KJ32= th.mK32, AR= th.m,beta1=tem
 
 }
 
+ptm<-proc.time()
 PP<-PowerPlot2D(K=20,n_obs=500,gamma= 1, delta =0.0)
+proc.time()-ptm
 
 plot(PP$beta1, PP$beta2,type="n",ylim=c(-.3,.3),xlim=c(-.25,.25),main=expression(paste("K=20,", delta, "=0.0,", gamma, "=1.0")), xlab= expression(beta[1]), ylab= expression(beta[2]))
 contour(PP$beta1, PP$beta2, PP$KJ14,add=TRUE)
