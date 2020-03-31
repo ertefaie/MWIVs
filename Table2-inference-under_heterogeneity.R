@@ -5,10 +5,11 @@
 library(ivpack);library(MASS);library(ivmodel);library(Matrix);library(dummies)
 
 #dat<-read.csv("C:\\SentencingProject\\upenn\\analysis_master_file.csv", header=T)
-K<-3 # number of instruments
-n_obs<-500
-strength<-c(2,rep(0,K-1))
-sdelt<- 0#-0.13
+K<-2 # number of instruments
+n_obs<-500 # sample size
+irep<-1000 # number of datasets
+strength<-c(2,rep(0,K-1)) # strength of the IV
+sdelt<- 0# sensitivity parameter
 
 
 
@@ -18,7 +19,6 @@ delt.vec<-seq(-1.2,1.2,by=0.1) # true parameter value.
 delt.vec<-seq(0.1,1.3,by=0.05) # true parameter value.
 #delt.vec<-seq(0.9,1.0,by=0.05) # true parameter value.
 cont<-contK<-contKJ14 <-0
-irep<-1000
 pval.AR<-pval.K<-pval.KJ14 <-pval.KJ32 <-pval.J<-CI.AR<-CI.K<-CI.KJ14<-CI.KJ41 <-CI.KJ32<-matrix(0,nrow=irep,ncol=length(delt.vec))
 herto_effect<-NULL
 #########################
