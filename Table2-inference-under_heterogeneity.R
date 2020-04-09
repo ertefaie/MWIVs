@@ -138,7 +138,7 @@ if(i%%10==0) print(i)
 cont/irep
 contK/irep
 
-
+ 
 cbind(pval.AR=apply(pval.AR,2,mean),pval.K=apply(pval.K,2,mean),pval.J=apply(pval.J,2,mean),beta=delt.vec,CI.AR=apply(CI.AR,2,mean),CI.K =apply(CI.K,2,mean),CI.KJ14 =apply(CI.KJ14,2,mean),CI.KJ41 =apply(CI.KJ41,2,mean),CI.KJ32 =apply(CI.KJ32,2,mean) )
 
 tab<-data.frame(cbind(pval.AR=apply(pval.AR,2,mean),pval.K=apply(pval.K,2,mean),pval.J=apply(pval.J,2,mean),beta=delt.vec,CI.AR=apply(CI.AR,2,mean),CI.K =apply(CI.K,2,mean),CI.KJ14 =apply(CI.KJ14,2,mean) ))
