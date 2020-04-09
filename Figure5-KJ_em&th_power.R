@@ -7,6 +7,7 @@
 # n_obs is the sample size
 # gamma sets the strength of the instruments
 # delta is the sensitivity parameter
+# nrep is the number of simulated datasets
 
 
 rm(list=ls())
@@ -156,7 +157,9 @@ return(list(beta= true.delta.vec,KJ14=th.power.KJ14,KJ32=th.power.KJ32,KJ05=th.p
 }
 
 
+ptm<-proc.time()
 PP<-PowerPlotEmTh(K=50,n_obs=500,gamma= 0.5, delta =0.2)
+proc.time()-ptm
 
 
 plot(PP$beta,apply(PP$KJ32,1,mean) ,type="n",ylab="Power", xlab=expression(beta),ylim=c(0,1))
