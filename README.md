@@ -11,4 +11,6 @@ File | Description
 [Figure8-Sensitivity-zeroinf-multitxt.R](Figure5-Sensitivity-zeroinf-multitxt.R) | Comparing the power of AR and different KJ statistics when the outcome is zero inflated and there are two treatment variables.  Generating Figure 8 in the manuscript. 
 [Figure7-KJ_em&th-zeroinf-multitxt.R](Figure7-KJ_em&th-zeroinf-multitxt) | Comparing the empirical and theoretical power of KJ statistic in a two-dimensional treatment setting and generating Figure 7 in the manuscript. 
 [Table2-inference-under_heterogeneity.R](Table1-inference-under_heterogeneity.R) | Producing confidence intervals and point estimates by inverting the AR and different KJ staitstics. Generating Table 2 in the manuscript.
+[Table3-real_data_code.R](Table3-real_data_code.R) | This code is used in real data analysis section to produce confidence intervals and point estimates by inverting the AR and different KJ staitstics. Generating Table 3 in the manuscript.
+[Table4-real_data_code.R](Table4-real_data_code.R) | This code is used in real data analysis section to produce confidence intervals and point estimates by inverting the AR and different KJ staitstics for different subgroups. Generating Table 4 in the manuscript.
 >>>>>>> Stashed changes
