@@ -21,13 +21,10 @@ Michigan.Sentencing.CIs<-function(delta) {
   
   
   set.seed(301)
-  #dat<-dat[sample(nrow(dat),8000,replace=FALSE),]
-  #dat<-dat[sample(nrow(dat),50000,replace=FALSE),]
+ 
   n_obs<-nrow(dat)
-  #dat<-dat[dat$sent_type=="Prison"|dat$sent_type=="Probation",]
   #########################
   length(unique(dat$r_judge_id))
-  #Xmat <- model.matrix(~pracid*t1+pracid*t2+pracid*t3+pracid*t4,data=dat)
   Z<-dummy(dat$r_judge_id)
   #Z<-scale(Z)
   temp<-Z[1,]%*%solve(t(Z)%*%Z/n_obs)%*%Z[1,]/sqrt(n_obs)
@@ -59,42 +56,22 @@ Michigan.Sentencing.CIs<-function(delta) {
   
   Z<-Z[,colnames(Z)%in%Excluded==FALSE]
   
-  
-  
-  
   temp<-cat.county
   
   covariates<-cbind(dat$cat.county,dat$crime_cont_sub,dat$crime_person,dat$crime_property,dat$crime_pub_safe,dat$crime_pub_order,age=dat$age_cat_ssd, sex=dat$r_sex,dat$marital_ds,dat$marital_single,dat$marital_marr,race=dat$race_b,edu=dat$educ_cat, priormis=dat$priormis_dummy,priorfel=dat$priorfel_dummy,drug=dat$r_drug,alcohol=dat$r_alcohol,employ23=dat$pre_employ23,employ12=dat$pre_employ12, wages23=dat$pre_wages23,wages12=dat$pre_wages12,mental=dat$r_mental_h,narrest=dat$arrest_cat,dat$r_senyear3,dat$r_senyear4,dat$r_senyear5,dat$marijuana_use,dat$opoids_use,dat$other_drug_use)
   
   #covariates<-cbind(dat$cat.county,dat$crime_cont_sub,dat$crime_person,dat$crime_property,dat$crime_pub_safe,dat$crime_pub_order,age=dat$age_demean,age2=dat$age_demeansq,sex=dat$r_sex,dat$marital_ds,dat$marital_single,dat$marital_marr,race=dat$race_b,edu=dat$educ_cat, priormis=dat$priormis_dummy,priorfel=dat$priorfelony_1,drug=dat$r_drug,alcohol=dat$r_alcohol,employ23=dat$pre_employ23,employ12=dat$pre_employ12, wages23=dat$pre_wages23,wages12=dat$pre_wages12,mental=dat$r_mental_h,narrest=dat$arrest_cat,dat$marijuana_use,dat$opoids_use,dat$other_drug_use)
   
-  table(dat$marital_cat)
-  
   txt2<-as.numeric(dat$sent_type=="Prison")  # treatment indicator
   txt<-scale(txt2,scale=FALSE)
   X<-txt
-  
   y<-scale(log(dat$mean_earn24_ssd+1),scale=FALSE)  # outcome
   
   ####Orthogonal PRojections onto space X#######
   
   temp<-cbind(y,txt)
-  
-  #temp2<- t(temp)- t(temp)%*%covariates%*%solve(t(covariates)%*% covariates)%*%t(covariates)
-  #temp3<- t(Z)- t(Z)%*%covariates%*%solve(t(covariates)%*% covariates)%*%t(covariates)
-  
-  
   temp2<- resid(lm(temp~covariates))
   temp3<-resid(lm(Z~covariates))
-  
-  
-  
-  
-  #y<-temp2[1,]
-  #txt<-temp2[2,]
-  #X<-txt<-scale(txt,scale=FALSE)
-  #Z<-t(temp3)
-  
   y<-temp2[,1]
   txt<-temp2[,2]
   X<-txt<-scale(txt,scale=FALSE)
@@ -102,8 +79,6 @@ Michigan.Sentencing.CIs<-function(delta) {
   Z<-apply(Z,2,scale)
   K<-ncol(Z)
   sdelt<- delta# -0.0 
-  
-  
   
   #######removing extreme judges#####
   
