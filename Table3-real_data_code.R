@@ -80,43 +80,7 @@ Michigan.Sentencing.CIs<-function(delta) {
   K<-ncol(Z)
   sdelt<- delta# -0.0 
   
-  #######removing extreme judges#####
-  
-  harshness<-t(coef(lm(X ~Z-1)))
-  q<-quantile(harshness,prob=c(.1,.9),na.rm=TRUE)
-  
-  remove10<-na.omit(colnames(Z)[harshness<q[1]])
-  remove90<-na.omit(colnames(Z)[harshness>q[2]])
-  remove<-c(remove10,remove90)
-  
-  
-  judge.index<-substr(remove,start=11,stop=15)
-  
-  dat<-dat[dat$r_judge_id%in%judge.index==FALSE,]
-  Z<-dummy(dat$r_judge_id)
-  temp<-data.frame(cbind(dat$r_judge_id,dat$r_county_new))
-  colnames(temp)<-c("r_judge_id","r_county_new")
-  temp<-temp[order(temp[,2]),]
-  temp$diff<-c(1,diff(temp[,2]))
-  head(temp)
-  #NotExcluded<-temp[as.integer(temp[,3])==FALSE|temp[,3]==0,1]
-  Excluded<-temp[temp[,3]!=0,1]
-  judge.index.Z<-substr(colnames(Z),start=11,stop=15)
-  
-  Z<-Z[,judge.index.Z%in%Excluded==FALSE]
-  
-  covariates<-cbind(dat$cat.county,dat$crime_cont_sub,dat$crime_person,dat$crime_property,dat$crime_pub_safe,dat$crime_pub_order,age=dat$age_cat_ssd, sex=dat$r_sex,dat$marital_ds,dat$marital_single,dat$marital_marr,race=dat$race_b,edu=dat$educ_cat, priormis=dat$priormis_dummy,priorfel=dat$priorfel_dummy,drug=dat$r_drug,alcohol=dat$r_alcohol,employ23=dat$pre_employ23,employ12=dat$pre_employ12, wages23=dat$pre_wages23,wages12=dat$pre_wages12,mental=dat$r_mental_h,narrest=dat$arrest_cat,dat$r_senyear3,dat$r_senyear4,dat$r_senyear5,dat$marijuana_use,dat$opoids_use,dat$other_drug_use)
-  
-  #covariates<-cbind(dat$cat.county,dat$crime_cont_sub,dat$crime_person,dat$crime_property,dat$crime_pub_safe,dat$crime_pub_order,age=dat$age_demean,age2=dat$age_demeansq,sex=dat$r_sex,dat$marital_ds,dat$marital_single,dat$marital_marr,race=dat$race_b,edu=dat$educ_cat, priormis=dat$priormis_dummy,priorfel=dat$priorfelony_1,drug=dat$r_drug,alcohol=dat$r_alcohol,employ23=dat$pre_employ23,employ12=dat$pre_employ12, wages23=dat$pre_wages23,wages12=dat$pre_wages12,mental=dat$r_mental_h,narrest=dat$arrest_cat,dat$marijuana_use,dat$opoids_use,dat$other_drug_use)
-  
-  table(dat$marital_cat)
-  
-  txt2<-as.numeric(dat$sent_type=="Prison")
-  txt<-scale(txt2,scale=FALSE)
-  X<-txt
-  
-  y<-scale(log(dat$mean_earn24_ssd+1),scale=FALSE)
-  
+ 
   ####Orthogonal PRojections onto space X #######
   
   temp<-cbind(y,txt)
@@ -133,9 +97,9 @@ Michigan.Sentencing.CIs<-function(delta) {
   
   
   gamma3<-gamma2<-t(coef(lm(X ~Z-1)))
-  delt.vec<-seq(-0.45,-0.35,by=0.01)
+ # delt.vec<-seq(-0.45,-0.35,by=0.01)
   #delt.vec<-seq(-0.06,0.00,by=0.01)
-  #delt.vec<-seq(-2.2,-1.3,by=0.02)
+  delt.vec<-seq(-2.2,-1.3,by=0.02)
   pval.AR<-pval.K<-pval.J <-NULL
   #PP<-solve(t(Z)%*%Z)%*%t(Z)
   #delt.vec<-0.7
