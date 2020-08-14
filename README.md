@@ -6,10 +6,10 @@
 File | Description
 ---- | ----
 <<<<<<< Updated upstream
-[Figure4-KJ_em&th_power.R](Figure3-KJ_em&th_power.R) | Comparing the empirical and theoretical power of KJ statistic and generating Figure 5 in the manuscript. 
-[Figure5-Sensitivity-Power.R](Figure4-Sensitivity-Power.R) | Comparing the power of AR and different KJ statistics and generating Figure 6 in the manuscript. 
-[Figure6-Sensitivity-zeroinf-multitxt.R](Figure5-Sensitivity-zeroinf-multitxt.R) | Comparing the power of AR and different KJ statistics when the outcome is zero inflated and there are two treatment variables.  Generating Figure 8 in the manuscript. 
-[FigureS9-KJ_em&th-zeroinf-multitxt.R](Figure7-KJ_em&th-zeroinf-multitxt) | Comparing the empirical and theoretical power of KJ statistic in a two-dimensional treatment setting and generating Figure 7 in the manuscript. 
+[Figure4-KJ_em&th_power.R](Figure3-KJ_em&th_power.R) | Comparing the empirical and theoretical power of KJ statistic and generating Figure 4 in the manuscript. 
+[Figure5-Sensitivity-Power.R](Figure4-Sensitivity-Power.R) | Comparing the power of AR and different KJ statistics and generating Figure 5 in the manuscript. 
+[Figure6-Sensitivity-zeroinf-multitxt.R](Figure5-Sensitivity-zeroinf-multitxt.R) | Comparing the power of AR and different KJ statistics when the outcome is zero inflated and there are two treatment variables.  Generating Figure 6 in the manuscript. 
+[FigureS9-KJ_em&th-zeroinf-multitxt.R](Figure7-KJ_em&th-zeroinf-multitxt) | Comparing the empirical and theoretical power of KJ statistic in a two-dimensional treatment setting and generating Figure S9 in the manuscript. 
 [Table2-inference-under_heterogeneity.R](Table1-inference-under_heterogeneity.R) | Producing confidence intervals and point estimates by inverting the AR and different KJ staitstics. Generating Table 2 in the manuscript.
 [Table3-real_data_code.R](Table3-real_data_code.R) | This code is used in real data analysis section to produce confidence intervals and point estimates by inverting the AR and different KJ staitstics. Generating Table 3 in the manuscript.
 [Table4-real_data_code.R](Table4-real_data_code.R) | This code is used in real data analysis section to produce confidence intervals and point estimates by inverting the AR and different KJ staitstics for different subgroups. Generating Table 4 in the manuscript.
